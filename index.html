@@ -1,71 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Custom Homepage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Homepage</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      background-image: url("https://i.ibb.co/zhWF5yrn/img.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      font-family: Arial, sans-serif;
-      color: black;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding-top:40px
-      backdrop-filter: brightness(0.8);
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
+        /* Search Bar */
+        .search-box {
+            width: 500px;
+            display: flex;
+            background: #fff;
+            border-radius: 50px;
+            padding: 10px 20px;
+            box-shadow: 0px 0px 10px #bfbfbf;
+            margin-bottom: 30px;
+        }
 
-    p {
-      font-size: 1.5rem;
-      font-style: italic;
-    }
-  </style>
+        .search-box input {
+            flex: 1;
+            font-size: 18px;
+            border: none;
+            outline: none;
+        }
+
+        .search-box button {
+            background: #4285F4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Quick Links */
+        .links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .links a {
+            text-decoration: none;
+            text-align: center;
+            font-size: 14px;
+            color: black;
+        }
+
+        .links img {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+        }
+    </style>
 </head>
+
 <body>
 
-  <h1 id="greeting"></h1>
-  <p id="quote"></p>
+    <!-- Google Search Bar -->
+    <form class="search-box" action="https://www.google.com/search" method="GET">
+        <input type="text" name="q" placeholder="Search Google...">
+        <button type="submit">Search</button>
+    </form>
 
-  <script>
-    // Greeting based on time
-    const hour = new Date().getHours();
-    let greetingText = "";
+    <!-- Quick Links -->
+    <div class="links">
+        <a href="https://youtube.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+            <br>YouTube
+        </a>
 
-    if (hour < 12) {
-      greetingText = "Good Morning Kavya!";
-    } else if (hour < 17) {
-      greetingText = "Good Afternoon Kavya!";
-    } else {
-      greetingText = "Good Evening Kavya!";
-    }
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+            <br>Instagram
+        </a>
 
-    document.getElementById("greeting").innerText = greetingText;
+        <a href="https://web.whatsapp.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+            <br>WhatsApp
+        </a>
 
-    // Motivational Quotes
-    const quotes = [
-      "Believe you can and you're halfway there.",
-      "Success is not final; failure is not fatal.",
-      "Dream it. Wish it. Do it.",
-      "Push yourself, because no one else will do it for you."
-    ];
-
-    document.getElementById("quote").innerText =
-      quotes[Math.floor(Math.random() * quotes.length)];
-  </script>
+        <a href="https://mail.google.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+            <br>Gmail
+        </a>
+    </div>
 
 </body>
 </html>
