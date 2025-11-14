@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Custom Homepage</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-image: url("https://i.ibb.co/zhWF5yrn/img.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+      color: black;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top:40px
+      backdrop-filter: brightness(0.8);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="greeting"></h1>
+  <p id="quote"></p>
+
+  <script>
+    // Greeting based on time
+    const hour = new Date().getHours();
+    let greetingText = "";
+
+    if (hour < 12) {
+      greetingText = "Good Morning Kavya!";
+    } else if (hour < 17) {
+      greetingText = "Good Afternoon Kavya!";
+    } else {
+      greetingText = "Good Evening Kavya!";
+    }
+
+    document.getElementById("greeting").innerText = greetingText;
+
+    // Motivational Quotes
+    const quotes = [
+      "Believe you can and you're halfway there.",
+      "Success is not final; failure is not fatal.",
+      "Dream it. Wish it. Do it.",
+      "Push yourself, because no one else will do it for you."
+    ];
+
+    document.getElementById("quote").innerText =
+      quotes[Math.floor(Math.random() * quotes.length)];
+  </script>
+
+</body>
+</html>
