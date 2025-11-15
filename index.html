@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>My Homepage</title>
+
 <style>
     body {
         margin: 0;
@@ -34,9 +35,10 @@
         font-weight: 500;
         text-shadow: 1px 1px 2px white;
     }
-    /* Search bar */
+
+    /* Add MORE SPACE before search bar */
     .search-container {
-        margin-top: 40px;
+        margin-top: 60px; /* <-- Increased from 40px to 60px */
         width: 60%;
         max-width: 550px;
         display: flex;
@@ -77,13 +79,13 @@
     </form>
 
 <script>
-    // Auto greetings based on time
+    // Greetings with your name
     const hour = new Date().getHours();
     let text = "";
 
-    if(hour < 12) text = "Good Morning";
-    else if(hour < 17) text = "Good Afternoon";
-    else text = "Good Evening";
+    if(hour < 12) text = "Good Morning,Kavya!";
+    else if(hour < 17) text = "Good Afternoon,Kavya!";
+    else text = "Good Evening,Kavya!";
 
     document.getElementById("wish").innerText = text;
 </script>
