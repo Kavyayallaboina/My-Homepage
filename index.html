@@ -14,37 +14,42 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        font-family: Arial, sans-serif;
-        color: white;
+        font-family: "Segoe UI", Arial, sans-serif;
         text-align: center;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        backdrop-filter: brightness(0.9);
-        text-shadow: 0px 0px 6px black;
+        align-items: center;
+    }
+
+    .top-container {
+        width: 100%;
+        padding-top: 40px; /* push from top */
     }
 
     .wish {
-        font-size: 42px;
-        font-weight: bold;
-        margin-bottom: 10px;
+        font-size: 40px;
+        font-weight: 600;
+        color: black;
+        margin-bottom: 8px;
     }
 
     .quote {
-        font-size: 22px;
-        margin-bottom: 30px;
+        font-size: 20px;
+        color: black;
+        font-style: italic;
+        margin-bottom: 40px;
         padding: 0 15px;
     }
 
     .search-box {
         width: 60%;
         max-width: 600px;
-        margin: 0 auto;
         display: flex;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.85);
         padding: 10px 20px;
         border-radius: 40px;
         align-items: center;
+        box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }
 
     .search-box input {
@@ -54,42 +59,6 @@
         border: none;
         outline: none;
         background: transparent;
-        color: #000;
     }
 
     .search-box button {
-        border: none;
-        background: none;
-        font-size: 20px;
-        cursor: pointer;
-    }
-</style>
-</head>
-
-<body>
-
-<div class="wish" id="wishText"></div>
-
-<div class="quote">
-    “The future belongs to those who believe in the beauty of their dreams.”
-</div>
-
-<form class="search-box" action="https://www.google.com/search" method="GET">
-    <input type="text" name="q" placeholder="Search Google...">
-    <button type="submit">🔍</button>
-</form>
-
-<script>
-    const hour = new Date().getHours();
-    let text = "";
-
-    if (hour >= 5 && hour < 12) text = "Good Morning 🌅";
-    else if (hour >= 12 && hour < 17) text = "Good Afternoon ☀️";
-    else if (hour >= 17 && hour < 21) text = "Good Evening 🌇";
-    else text = "Good Night 🌙";
-
-    document.getElementById("wishText").innerHTML = text;
-</script>
-
-</body>
-</html>
