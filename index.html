@@ -9,32 +9,36 @@
         margin: 0;
         padding: 0;
         height: 100vh;
-        background: url("https://i.ibb.co/7tdsN8ZP/Monk-WO.jpg") no-repeat center center/cover;
         font-family: "Poppins", sans-serif;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         color: black;
+        position: relative;
+        overflow: hidden;
     }
 
-    /* Dark overlay for better text visibility */
+    /* Background Image */
     body::before {
         content: "";
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(255, 255, 255, 0.4);
+        background: 
+            linear-gradient(rgba(255,200,150,0.3), rgba(150,200,255,0.3)),
+            url("https://i.ibb.co/7tdsN8ZP/Monk-WO.jpg") no-repeat center center/cover;
+        filter: brightness(1.2) saturate(1.4);
         z-index: -1;
     }
 
     #wish {
-        margin-top: 60px;
+        margin-top: 70px;
         font-size: 45px;
         font-weight: 700;
-        text-shadow: 1px 1px 5px white;
+        text-shadow: 2px 2px 8px white;
     }
 
     #quote {
@@ -44,6 +48,7 @@
         text-align: center;
         font-weight: 500;
         transition: opacity 0.5s ease;
+        text-shadow: 1px 1px 5px white;
     }
 
     .search-container {
@@ -132,7 +137,7 @@
     }
 
     changeQuote();
-    setInterval(changeQuote, 600000); // 10 minutes
+    setInterval(changeQuote, 600000);
 </script>
 
 </body>
