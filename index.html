@@ -19,7 +19,7 @@
         overflow: hidden;
     }
 
-    /* Background Image */
+    /* Background Layer */
     body::before {
         content: "";
         position: fixed;
@@ -27,10 +27,25 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: 
-            linear-gradient(rgba(255,200,150,0.3), rgba(150,200,255,0.3)),
-            url("https://i.ibb.co/7tdsN8ZP/Monk-WO.jpg") no-repeat center center/cover;
+        background-size: cover;
+        background-position: center;
         filter: brightness(1.2) saturate(1.4);
+        z-index: -1;
+        transition: background-image 1s ease-in-out;
+    }
+
+    /* Soft colorful overlay */
+    body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            rgba(255,200,150,0.3),
+            rgba(150,200,255,0.3)
+        );
         z-index: -1;
     }
 
@@ -98,47 +113,56 @@
 
     document.getElementById("wish").innerText = greeting;
 
-    const morningQuotes = [
-        "Start your day with confidence.",
-        "New day, new opportunities.",
-        "Small progress is still progress.",
-        "Discipline creates freedom."
+    // 🌸 Background Images
+    const images = [
+        "https://i.ibb.co/35VkhRvh/flower.jpg",
+        "https://i.ibb.co/qFsrkg19/flowers.jpg",
+        "https://i.ibb.co/XvSvJX3/imgage.jpg",
+        "https://i.ibb.co/CpqkVr9P/lotus.jpg",
+        "https://i.ibb.co/0pzCzbcY/sun.jpg"
     ];
 
-    const afternoonQuotes = [
-        "Stay focused, you're doing great.",
+    const bgLayer = document.querySelector("body::before");
+
+    function changeBackground() {
+        const randomIndex = Math.floor(Math.random() * images.length);
+        document.body.style.setProperty(
+            "--bg-image",
+            `url(${images[randomIndex]})`
+        );
+        document.body.style.backgroundImage = `url(${images[randomIndex]})`;
+    }
+
+    // Apply first image
+    document.body.style.backgroundImage = `url(${images[0]})`;
+
+    setInterval(changeBackground, 600000); // 10 minutes
+
+    // 💬 Quotes
+    const quotes = [
+        "Start your day with confidence.",
         "Push a little more, Kavya!",
         "Consistency beats motivation.",
-        "Your effort today builds tomorrow."
+        "You are growing every single day.",
+        "Discipline creates freedom.",
+        "Rest now, conquer tomorrow."
     ];
-
-    const eveningQuotes = [
-        "Reflect. Reset. Rise again.",
-        "You did your best today.",
-        "Rest now, conquer tomorrow.",
-        "Growth happens daily."
-    ];
-
-    let selectedQuotes;
-
-    if(hour < 12) selectedQuotes = morningQuotes;
-    else if(hour < 17) selectedQuotes = afternoonQuotes;
-    else selectedQuotes = eveningQuotes;
 
     const quoteElement = document.getElementById("quote");
 
     function changeQuote() {
-        const randomIndex = Math.floor(Math.random() * selectedQuotes.length);
+        const randomIndex = Math.floor(Math.random() * quotes.length);
         quoteElement.style.opacity = 0;
         setTimeout(() => {
-            quoteElement.innerText = selectedQuotes[randomIndex];
+            quoteElement.innerText = quotes[randomIndex];
             quoteElement.style.opacity = 1;
         }, 300);
     }
 
     changeQuote();
-    setInterval(changeQuote, 600000);
+    setInterval(changeQuote, 600000); // 10 minutes
 </script>
 
 </body>
 </html>
+
