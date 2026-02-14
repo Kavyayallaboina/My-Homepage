@@ -9,7 +9,7 @@
         margin: 0;
         padding: 0;
         height: 100vh;
-        background: url("https://i.ibb.co/zhWF5yrn/img.jpg") no-repeat center center/cover;
+        background: #f5f5f5;
         font-family: "Poppins", sans-serif;
         display: flex;
         flex-direction: column;
@@ -18,27 +18,31 @@
         color: black;
     }
 
-    /* Wishes */
+    .top-image {
+        margin-top: 30px;
+        width: 250px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
     #wish {
-        margin-top: 50px;
+        margin-top: 30px;
         font-size: 45px;
         font-weight: 700;
         text-shadow: 1px 1px 3px white;
     }
 
-    /* Quote */
     #quote {
-        margin-top: 10px;
+        margin-top: 15px;
         font-size: 22px;
         max-width: 80%;
         text-align: center;
         font-weight: 500;
-        text-shadow: 1px 1px 2px white;
+        transition: opacity 0.5s ease;
     }
 
-    /* Add MORE SPACE before search bar */
     .search-container {
-        margin-top: 60px; /* <-- Increased from 40px to 60px */
+        margin-top: 60px;
         width: 60%;
         max-width: 550px;
         display: flex;
@@ -62,32 +66,74 @@
         cursor: pointer;
     }
 </style>
-
 </head>
+
 <body>
 
-    <!-- Wish -->
-    <div id="wish"></div>
+<img src="https://i.ibb.co/7tdsN8ZP/Monk-WO.jpg" class="top-image" alt="Monk-WO">
 
-    <!-- Quote -->
-    <div id="quote">"Small steps every day lead to big results."</div>
+<div id="wish"></div>
 
-    <!-- Search -->
-    <form class="search-container" action="https://www.google.com/search">
-        <input type="text" name="q" class="search-box" placeholder="Search Google...">
-        <button type="submit" class="search-btn">Go</button>
-    </form>
+<div id="quote"></div>
+
+<form class="search-container" action="https://www.google.com/search">
+    <input type="text" name="q" class="search-box" placeholder="Search Google...">
+    <button type="submit" class="search-btn">Go</button>
+</form>
 
 <script>
-    // Greetings with your name
     const hour = new Date().getHours();
-    let text = "";
+    let greeting = "";
 
-    if(hour < 12) text = "Good Morning,Kavya!";
-    else if(hour < 17) text = "Good Afternoon,Kavya!";
-    else text = "Good Evening,Kavya!";
+    if(hour < 12) greeting = "Good Morning, Kavya!";
+    else if(hour < 17) greeting = "Good Afternoon, Kavya!";
+    else greeting = "Good Evening, Kavya!";
 
-    document.getElementById("wish").innerText = text;
+    document.getElementById("wish").innerText = greeting;
+
+    // Quotes based on time
+    const morningQuotes = [
+        "Start your day with confidence.",
+        "New day, new opportunities.",
+        "Small progress is still progress.",
+        "Discipline creates freedom."
+    ];
+
+    const afternoonQuotes = [
+        "Stay focused, you're doing great.",
+        "Push a little more, Kavya!",
+        "Consistency beats motivation.",
+        "Your effort today builds tomorrow."
+    ];
+
+    const eveningQuotes = [
+        "Reflect. Reset. Rise again.",
+        "You did your best today.",
+        "Rest now, conquer tomorrow.",
+        "Growth happens daily."
+    ];
+
+    let selectedQuotes;
+
+    if(hour < 12) selectedQuotes = morningQuotes;
+    else if(hour < 17) selectedQuotes = afternoonQuotes;
+    else selectedQuotes = eveningQuotes;
+
+    const quoteElement = document.getElementById("quote");
+
+    function changeQuote() {
+        const randomIndex = Math.floor(Math.random() * selectedQuotes.length);
+        quoteElement.style.opacity = 0;
+        setTimeout(() => {
+            quoteElement.innerText = selectedQuotes[randomIndex];
+            quoteElement.style.opacity = 1;
+        }, 300);
+    }
+
+    changeQuote(); // initial quote
+
+    // Change every 10 minutes (600000 ms)
+    setInterval(changeQuote, 600000);
 </script>
 
 </body>
