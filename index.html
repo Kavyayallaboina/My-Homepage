@@ -121,13 +121,15 @@
     document.getElementById("wish").innerText = greeting;
 
     const images = [
-        "https://i.ibb.co/35VkhRvh/flower.jpg",
-        "https://i.ibb.co/qFsrkg19/flowers.jpg",
-        "https://i.ibb.co/XvSvJX3/imgage.jpg",
-        "https://i.ibb.co/CpqkVr9P/lotus.jpg",
-        "https://i.ibb.co/0pzCzbcY/sun.jpg"
-    ];
-
+    "https://i.ibb.co/35VkhRvh/flower.jpg",
+    "https://i.ibb.co/qFsrkg19/flowers.jpg",
+    "https://i.ibb.co/XvSvJX3/imgage.jpg",
+    "https://i.ibb.co/CpqkVr9P/lotus.jpg",
+    "https://i.ibb.co/0pzCzbcY/sun.jpg",
+    "https://i.ibb.co/d0B4Qjp0/image.jpg",   // New
+    "https://i.ibb.co/qL0jZJm0/img.jpg"      // New
+];
+    
     function changeBackground() {
         const randomIndex = Math.floor(Math.random() * images.length);
         document.body.style.backgroundImage = `url(${images[randomIndex]})`;
@@ -164,3 +166,4 @@
 
 </body>
 </html>
+
